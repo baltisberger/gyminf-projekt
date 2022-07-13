@@ -1,6 +1,5 @@
 import re
 import string
-import numpy as np
 import fasttext
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.decomposition import TruncatedSVD
