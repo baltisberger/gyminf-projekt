@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>GymInf Projekt</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='site.css')}}" />
+</head>
+<body>
+    <div class="body-content">
+        <h2>GymInf Projekt</h2>
+        <div class="grid-container">
+            <div class="grid-child" name="abfrage">
+                <b>Abfrage</b>
+                <form method="POST">
+                    <textarea rows="15" name="queryText" id="queryText">{{query}}</textarea>
+                    <div>
+                        <select name="mySelect" id="mySelect">
+                            <option value="top10">Top 10</option>
+                            <option value="predictedPositive">Predicted Positive</option>
+                        </select>
+                      </div>
+                    <input type="submit" value="Abfrage absenden" id="sendButton">
+                    {% if display %}
+                    <script>
+                        let d = "{{display}}";
+                        document.getElementById("mySelect").value = d;
+                    </script>
+                    {% endif %}
+                </form>
+            </div>
+            <div class="grid-child" name="tfidf">
+                <b>TF-IDF</b>
+                <table class="output">
+                    <tr>
+                        <th>Artikel</th>
+                        <th>Kosinus-Ähnlichkeit</th>
+                    </tr>
+                    {% for tuple in tfidf %}
+                    <!-- tuple = (article, cosine similarity, url) -->
+                    <tr>
+                        <td><a href="{{tuple[2]}}" target="_blank">{{tuple[0]}}</a></td>
+                        <td>{{tuple[1]}}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+            <div class="grid-child" name="fasttext">
+                <b>FastText</b>
+                <table class="output">
+                    <tr>
+                        <th>Artikel</th>
+                        <th>Kosinus-Ähnlichkeit</th>
+                    </tr>
+                    {% for tuple in fasttext %}
+                    <!-- tuple = (article, cosine similarity, url) -->
+                    <tr>
+                        <td><a href="{{tuple[2]}}" target="_blank">{{tuple[0]}}</a></td>
+                        <td>{{tuple[1]}}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

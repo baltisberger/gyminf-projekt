@@ -1,0 +1,64 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: whitesmoke;
+}
+
+a:link, a:visited {
+    color: blue;
+    text-decoration: none;
+}
+
+table {
+    width: 100%;
+}
+
+th, td {
+    text-align: left;
+    width: 50%;
+}
+
+footer {
+    font-size: 0.875em;
+}
+
+.body-content {
+    padding: 10px 20px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 10px;
+}
+
+.grid-child {
+    background-color: lightblue;
+    border: 2px solid black;
+    padding: 5px;
+}
+
+.output {
+    font-size: 0.875em;
+    margin: 0;
+}
+
+#queryText {
+    width: 100%;
+    outline: none;
+    resize: none;
+}
+
+#mySelect {
+    width: 100%;
+    margin: 5px 0px;
+    text-align: center;
+}
+
+#sendButton {
+    width: 100%;
+}
